@@ -1,0 +1,21 @@
+Games:
+Drops of Neon: /dropsofneon [Volledig zelf (Code, Art en Muziek) binnen 48u, van scratch]
+Moving Minds Game: App hopelijk [Alle code en shaders, met Unity]
+ELZ: Media [Alle code en UI vertrekkende vanuit voorgemaakt deisgn]
+Kytharos: Media [Alle code]
+
+Applications:
+Eclips: https://www.youtube.com/watch?v=X-LVnxGL-zk [Alle code en lighting]
+360 Campus Map: https://xplab.ucll.be/campus/embed.html [Code en UI]
+PVC PipeXylo: https://www.youtube.com/watch?v=7HhCKSiEO2w [Code, lighting en audio]
+Suicide Prevention: https://xplab.ucll.be/zmp/ en https://xplab.ucll.be/zmp/builds/web/ [Alle code en UI]
+Stroke Recovery: https://www.youtube.com/watch?v=Yl5jlBUigmU&t=1s [Alle code en dynamic terrain generation]
+Visit Leuven: https://www.youtube.com/watch?v=BI_GpvyNDz4&t=52s [Code]
+Online meeting room in VR: Media [Alles]
+
+Art:
+Blue Demon: concept, illustration, mp4
+Shader Art: gifs
+
+Code:
+Discord Unity: Repository [Alles]

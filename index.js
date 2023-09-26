@@ -4,7 +4,7 @@ function loadPlugins(plugins, callback) {
     plugins.forEach(plugin => {
         var script = document.createElement('script');
         script.type = 'text/javascript';
-        script.src = `/plugins/${plugin}.js`;
+        script.src = `./plugins/${plugin}.js`;
         script.onload = function() {
             if (--loaded == 0 && callback) {
                 callback();
@@ -18,7 +18,7 @@ function loadPlugins(plugins, callback) {
 function loadApp() {
     var script = document.createElement('script');
     script.type = 'module';
-    script.src = '/app.js';
+    script.src = './app.js';
     script.onload = function() {
         document.body.appendChild(document.createElement('app-χ'));
     };

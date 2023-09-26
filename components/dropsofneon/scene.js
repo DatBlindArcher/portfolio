@@ -72,10 +72,10 @@ export default class Scene {
                 type: 'Audio',
                 key: 'audio',
                 samples: new Map([
-                    ['hit', new Audio('/audio/don/hit.wav')],
-                    ['bounce', new Audio('/audio/don/bounce.wav')],
-                    ['points', new Audio('/audio/don/points.wav')],
-                    ['spawn', new Audio('/audio/don/spawn.wav')]
+                    ['hit', new Audio(config.base_path + '/audio/don/hit.wav')],
+                    ['bounce', new Audio(config.base_path + '/audio/don/bounce.wav')],
+                    ['points', new Audio(config.base_path + '/audio/don/points.wav')],
+                    ['spawn', new Audio(config.base_path + '/audio/don/spawn.wav')]
                 ])
             }, {
                 type: 'Spawner',

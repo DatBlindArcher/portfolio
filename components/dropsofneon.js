@@ -197,11 +197,11 @@ const template = /*html*/`
                 </div>
             </div>
         </div>
-        <img id="heart_0" class="heart" width="16" height="16" src="images/heart.png" />
-        <img id="heart_1" class="heart" width="16" height="16" src="images/heart.png" />
-        <img id="heart_2" class="heart" width="16" height="16" src="images/heart.png" />
-        <img id="heart_3" class="heart" width="16" height="16" src="images/heart.png" />
-        <div class="score"><span class="score_value">1</span><img class="drop" width="12" height="12" src="images/drop.png" /></div>    
+        <img id="heart_0" class="heart" width="16" height="16" src="../images/heart.png" />
+        <img id="heart_1" class="heart" width="16" height="16" src="../images/heart.png" />
+        <img id="heart_2" class="heart" width="16" height="16" src="../images/heart.png" />
+        <img id="heart_3" class="heart" width="16" height="16" src="../images/heart.png" />
+        <div class="score"><span class="score_value">1</span><img class="drop" width="12" height="12" src="../images/drop.png" /></div>    
         <canvas id='game' width="800" height="600"></canvas>
         <div id="game_start" class="overlay">
             <p>Somewhere deep in the dark web drops suddenly appeared to turn neon. Your job is to capture and destroy them. 
@@ -210,7 +210,7 @@ const template = /*html*/`
         </div>
         <div id="game_over" class="overlay">
             <h2 class="ui center aligned inverted huge header">Game Over</h2>
-            <div>Score: <span class="score_value">1</span><img class="drop" width="12" height="12" src="images/drop.png" /></div>
+            <div>Score: <span class="score_value">1</span><img class="drop" width="12" height="12" src="../images/drop.png" /></div>
             <button bind="retry" class="ui primary button">Try Again</button>
             <div class="div2">Want to change difficulty?</div>
             <div id="difficulty" class="ui three item inverted menu">
@@ -236,7 +236,7 @@ define('dropsofneon', template, class extends Base {
     setup() {
         let self = this;
 
-        this.music = new Audio('/audio/don/music2.wav');
+        this.music = new Audio(config.base_path + '/audio/don/music2.wav');
         this.music.loop = true;
         this.bg_slider = this.find("#bg_slider");
         this.music.volume = this.bg_slider.value / 100;

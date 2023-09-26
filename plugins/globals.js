@@ -6,7 +6,7 @@ let styleCache = {};
 
 async function getStyle(cssFile) {
     if (styleCache[cssFile] == undefined) {
-        let response = await fetch(cssFile);
+        let response = await fetch(config.base_path + cssFile);
         styleCache[cssFile] = await response.text();
     }
 
@@ -23,7 +23,7 @@ async function getStyles(...cssFiles) {
     
     for(const f of cssFiles) {
         if (styleCache[f] == undefined) {
-            let response = await fetch(f);
+            let response = await fetch(config.base_path + f);
             styleCache[f] = await response.text();
         }
     
@@ -34,5 +34,5 @@ async function getStyles(...cssFiles) {
 }
 
 async function getSemantic(...components) {
-    return await getStyles(components.map(c => config.base_path + `/semantic/components/${c}.min.css`));
+    return await getStyles(components.map(c => `/semantic/components/${c}.min.css`));
 }

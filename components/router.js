@@ -30,7 +30,7 @@ customElements.define("router" + TAGS.X, class extends HTMLElement {
 	return Array.from(this.querySelectorAll("route" + TAGS.X))
 	  .filter(node => node.parentNode === this)
 	  .map(r => ({
-		path: r.getAttribute("path"),
+		path: config.base_path + r.getAttribute("path"),
 		// Optional: document title
 		title: r.getAttribute("title"),
 		// name of the web component the should be displayed
@@ -69,7 +69,7 @@ customElements.define("router" + TAGS.X, class extends HTMLElement {
 	 * behaviour and navigate to the registered route onclick.
 	 */
 	elem.querySelectorAll("a[route]").forEach(link => {
-	  const target = link.getAttribute("route");
+	  const target = config.base_path + link.getAttribute("route");
 	  if (target == 'undefined') return;
 	  link.setAttribute("href", target);
 	  link.onclick = e => {
@@ -79,7 +79,7 @@ customElements.define("router" + TAGS.X, class extends HTMLElement {
 	});
 
 	elem.shadowRoot?.querySelectorAll("a[route]").forEach(link => {
-	  const target = link.getAttribute("route");
+	  const target = config.base_path + link.getAttribute("route");
 	  if (target == 'undefined') return;
 	  link.setAttribute("href", target);
 	  link.onclick = e => {

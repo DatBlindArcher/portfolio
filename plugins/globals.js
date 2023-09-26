@@ -34,5 +34,5 @@ async function getStyles(...cssFiles) {
 }
 
 async function getSemantic(...components) {
-    return await getStyles(components.map(c => `/semantic/components/${c}.min.css`));
+    return await getStyles(components.map(c => config.base_path + `/semantic/components/${c}.min.css`));
 }

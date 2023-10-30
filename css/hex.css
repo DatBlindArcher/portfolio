@@ -1,6 +1,6 @@
 .hex_pattern {
     background-color: #111111;
-    background-position: top, top, 0% 0%;
+    background-position: top, top, 0% -25%;
     background-repeat: repeat, no-repeat, no-repeat;
     background-size: 600px 600px, 100% 100%, 100% 20%, 100%;
     background-image: url('images/hex_pattern_2.png'), 
@@ -13,6 +13,17 @@
     animation-iteration-count: infinite;
 
     height: 800px;
+
+}
+
+.hex_pattern.reset {
+    background-color: #111111;
+    background-position: top, top, 0% -25%;
+    background-image: url('images/hex_pattern_2.png'), 
+        linear-gradient(transparent, rgba(255, 255, 255, .1)), 
+        linear-gradient(transparent, rgba(255, 255, 255, .1));
+
+    animation: none;
 
 }
 

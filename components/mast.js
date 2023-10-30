@@ -59,7 +59,25 @@ const template = /*html*/`
 `;
 
 define('mast', template, class extends Base {
+    #time;
+    #last_time;
+    #running;
+
+    get isRunning(){
+        return this.#running;
+    }
+
+    set isRunning(value){
+        if (!this.#running && value) {
+            window.requestAnimationFrame(this.update.bind(this));
+        }
+
+        return this.#running = value;
+    }
+
     created() {
+        this.#time = this.#last_time = 0;
+        this.#running = true;
         this.imageObj = new Image();
         this.imageObj.onload = this.start.bind(this);
         this.imageObj.src = "http://www.blog.jonnycornwell.com/wp-content/uploads/2012/07/Smoke10.png";
@@ -83,6 +101,17 @@ define('mast', template, class extends Base {
     }
 
     update(time) {
+        let delta_time = time - this.#last_time;
+        
+        // Reset time when there was a pause
+        if (delta_time > 200) {
+            delta_time = 1000 / 60;
+        } 
+
+        this.#time += delta_time;
+        this.#last_time = time;
+        time = this.#time;
+
         let ctx = this.ctx;
         let width = this.width;
         let height = this.height;
@@ -116,7 +145,7 @@ define('mast', template, class extends Base {
             [0.01, height * 0.07], [0.025, height * 0.09], [0.15, height * 0.009] 
         ], time, 0.0005);
 
-        window.requestAnimationFrame(this.update.bind(this));
+        if (this.isRunning) window.requestAnimationFrame(this.update.bind(this));
     }
 
     // sine : interval, amplitude

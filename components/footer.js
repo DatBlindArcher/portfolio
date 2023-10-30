@@ -12,10 +12,10 @@ const template = /*html*/`
 </style>
 <div class="main">
     <div class="ui center aligned text container">
-        <a target="_blank" href="https://github.com/DatBlindArcher" class="ui github button"><i class="github icon"></i>Github</a>
-        <a target="_blank" href="https://www.linkedin.com/in/robbe-decraemer/" class="ui linkedin button"><i class="linkedin icon"></i>LinkedIn</a>
-        <a target="_blank" href="https://discord.com/users/153270093885865984" class="ui discord button"><i class="discord icon"></i>Discord</a>
-        <a target="_blank" href="mailto:robbedecraemer@hotmail.com" class="ui mail button"><i class="mail icon"></i>Email</a>
+        <a target="_blank" href="https://github.com/DatBlindArcher" class="ui button"><i class="github icon"></i>Github</a>
+        <a target="_blank" href="https://www.linkedin.com/in/robbe-decraemer/" class="ui button"><i class="linkedin icon"></i>LinkedIn</a>
+        <a target="_blank" href="https://discord.com/users/153270093885865984" class="ui button"><i class="discord icon"></i>Discord</a>
+        <a target="_blank" href="mailto:robbedecraemer@hotmail.com" class="ui button"><i class="mail icon"></i>Email</a>
     </div>
 </div>
 `;

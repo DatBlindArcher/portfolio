@@ -4,30 +4,45 @@ const template = /*html*/`
 <style>
     .main {
         width: 100%;
-        height: 100%;
+        height: 60%;
         background-color: #111111;
+        position: relative;
+    }
+    
+    img {
+        position: absolute;
+        top: calc(48%);
+        left: 50%;
+        height: 160px;
+        width: 160px;
+        border-radius: 100px;
+        border: 2px solid #BBBBBB;
+        box-shadow: 0 0 10px gray;
+        background: radial-gradient(#555555, #111111);
+        transform: translate(-50%, 0%);
+        object-fit: contain;
     }
 
     .header {
         position: absolute;
         text-align: center;
-        top: 48%;
+        top: calc(48% + 180px);
         left: 50%;
         color: white;
         font-size: 48px;
-        transform: translate(-50%, -50%)
+        transform: translate(-50%, -50%);
     }
     
     .meta {
         position: absolute;
         text-align: center;
-        top: calc(48% + 54px);
+        top: calc(48% + 234px);
         left: 50%;
         color: white;
         font-size: 16px;
         font-weight: 0;
         font-style: italic;
-        transform: translate(-50%, -50%)
+        transform: translate(-50%, -50%);
     }
 
     #screen {
@@ -36,8 +51,9 @@ const template = /*html*/`
     }
 </style>
 <div class="main">
-    <h1 class="header">Robbe Decraemer</h1>
-    <h2 class="meta">a.k.a. Archer</h2>
+    <img src="images/profile.png" />
+    <h1 class="header">Archer</h1>
+    <h2 class="meta">a.k.a. Robbe Decraemer</h2>
     <canvas id="screen"></canvas>
 </div>
 `;
@@ -78,20 +94,26 @@ define('mast', template, class extends Base {
 
         this.drawClouds(ctx, width, height, time);
 
-        this.drawComplexSine(ctx, width, height, 700, [
-            [0.02, 80], [0.05, 50], [0.25, 4] 
+        // 35%
+        // 14% 9% 0.7%
+        this.drawComplexSine(ctx, width, height, height - height * 0.35, [
+            [0.02, height * 0.14], [0.05, height * 0.09], [0.25, height * 0.007] 
         ], time, 0.0008);
 
         this.drawClouds(ctx, width, height, time);
 
-        this.drawComplexSine(ctx, width, height, 580, [
-            [0.015, 60], [0.035, 30], [0.2, 3] 
+        // 45%
+        // 11% 5% 0.5%
+        this.drawComplexSine(ctx, width, height, height - height * 0.45, [
+            [0.015, height * 0.11], [0.035, height * 0.05], [0.2, height * 0.005] 
         ], time, 0.0007);
 
         this.drawClouds(ctx, width, height, time);
 
-        this.drawComplexSine(ctx, width, height, 400, [
-            [0.01, 40], [0.025, 50], [0.15, 5] 
+        // 60%
+        // 7% 9% 0.9%
+        this.drawComplexSine(ctx, width, height, height - height * 0.6, [
+            [0.01, height * 0.07], [0.025, height * 0.09], [0.15, height * 0.009] 
         ], time, 0.0005);
 
         window.requestAnimationFrame(this.update.bind(this));

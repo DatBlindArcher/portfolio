@@ -1,0 +1,68 @@
+.hex_pattern {
+    background-color: #111111;
+    background-position: top, top, 0% 0%;
+    background-repeat: repeat, no-repeat, no-repeat;
+    background-size: 600px 600px, 100% 100%, 100% 20%, 100%;
+    background-image: url('images/hex_pattern_2.png'), 
+        linear-gradient(transparent, rgba(255, 255, 255, .1)), 
+        linear-gradient(transparent, rgba(255, 255, 255, .1));
+
+    animation-name: wave;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    height: 800px;
+
+}
+
+@keyframes wave {
+    0% { 
+        background-position: top, top, 0% -25%;
+        background-image: url('images/hex_pattern_2.png'), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .1)), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .1)); 
+    }
+    70% { 
+        background-position: top, top, 0% -25%;
+        background-image: url('images/hex_pattern_2.png'), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .1)), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .1)); 
+    }
+    75% { 
+        background-position: top, top, 0% 0%;
+        background-image: url('images/hex_pattern_2.png'), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .1)), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .2)); 
+    }
+    80% { 
+        background-position: top, top, 0% 25%;
+        background-image: url('images/hex_pattern_2.png'), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .1)), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .3)); 
+    }
+    85% { 
+        background-position: top, top, 0% 50%;
+        background-image: url('images/hex_pattern_2.png'), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .1)), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .4)); 
+    }
+    90% { 
+        background-position: top, top, 0% 75%;
+        background-image: url('images/hex_pattern_2.png'), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .1)), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .5)); 
+    }
+    95% { 
+        background-position: top, top, 0% 100%;
+        background-image: url('images/hex_pattern_2.png'), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .1)), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .6)); 
+    }
+    100% { 
+        background-position: top, top, 0% 125%;
+        background-image: url('images/hex_pattern_2.png'), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .1)), 
+            linear-gradient(transparent,  rgba(255, 255, 255, .6)); 
+    }
+}

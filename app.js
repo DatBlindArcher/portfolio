@@ -8,6 +8,7 @@ const template = /*html*/`
     <route-X path="/contact" title="Contact" component="contact-page"></route-X>
     <route-X path="/dropsofneon" title="Drops Of Neon" component="dropsofneon-page"></route-X>
     <route-X path="/bullets" title="Bullet Hell" component="bullets-page"></route-X>
+    <route-X path="/webgpu" title="webgpu" component="webgpu-page"></route-X>
     <outlet-X></outlet-X>
 </router-X>
 `;

@@ -5,6 +5,7 @@ Drops Of Neon (link)
 Tron Bike (img)
 Shaders (gifs)
 Blue Devil (gif)
+WebGPU Demo
 
 Dileoz [1]:
 Vacature Website provincie Oost-Vlaanderen (link)

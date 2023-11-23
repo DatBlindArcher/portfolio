@@ -51,7 +51,7 @@ const template = /*html*/`
 .project:hover {
     cursor: pointer;
     transform: rotate3d(-.2, 1, .01, 16deg);
-    background-color: rgb(255, 255, 255, .05);
+    background-color: rgb(255, 255, 255, .2);
 }
 
 .project > h2 {
@@ -87,6 +87,10 @@ const template = /*html*/`
     line-height: initial;
     border-radius: 10px;
     padding: 4px 12px;
+}
+
+.label.disabled:after {
+    background-color: rgba(60,60,60,1) !important;
 }
 
 .self.label:after {
@@ -148,13 +152,18 @@ const template = /*html*/`
     content: "Mobile App";
     background-color: gray;
 }
+
+#hidden_projects {
+    display: none;
+}
 </style>
 <button bind="toggle_anim" class="ui basic mini black icon button" id="pause"><i class="pause black icon"></i></button>
 <mast-X></mast-X>
 <div class="games hex_pattern">
     <div class="filters">Companies: <span class="self label"></span> <span class="xplab label"></span> <span class="dileoz label"></span> <span class="ordina label"></span></div>
     <div class="filters">Filters: <span class="game label"></span> <span class="web label"></span> <span class="tech label"></span> <span class="art label"></span> <span class="software label"></span> <span class="vr label"></span> <span class="ar label"></span> <span class="mobile label"></span></div>
-    <div class="ui three column grid">
+    <div id="hidden_projects"></div>
+    <div id="projects" class="ui three column grid">
         <div class="column">
             <a route="/dropsofneon" class="project">
                 <img src="images/drops_of_neon2.png" />
@@ -302,6 +311,9 @@ const template = /*html*/`
 
 define('home-page', template, class extends Base {
     #paused;
+    #options;
+    #projects;
+    #hidden_projects;
 
     async styles(add) {
         add(await getStyle('/semantic/semantic.min.css'));
@@ -310,6 +322,62 @@ define('home-page', template, class extends Base {
 
     created() {
         this.#paused = false;
+        this.#projects = this.find("#projects");
+        this.#hidden_projects = this.find("#hidden_projects");
+        
+        var fillDivs = this.findAll(".filters");
+        var filters = [...fillDivs[0].children, ...fillDivs[1].children];
+        var self = this;
+        self.#options = new Set();
+        
+        for (let filter of filters) {
+            let option = filter.classList[0];
+
+            filter.addEventListener('click', e => {
+                if (filter.classList.contains('disabled')) {
+                    filter.classList.remove('disabled');
+                    self.#options.add(option);
+                }
+                else {
+                    filter.classList.add('disabled'); 
+                    self.#options.delete(option);
+                }
+
+                self.updateProjects();
+            });
+
+            self.#options.add(option);
+        }
+
+        self.updateProjects();
+    }
+
+    updateProjects() {
+        for (let project of [...this.#projects.children]) {
+            for (let label of project.children[0].children[1].children) {
+                let option = label.classList[0];
+
+                if (!this.#options.has(option)) {
+                    this.#hidden_projects.append(project);
+                    break;
+                }
+            }
+        }
+
+        for (let project of [...this.#hidden_projects.children]) {
+            let move = true;
+
+            for (let label of project.children[0].children[1].children) {
+                let option = label.classList[0];
+
+                if (!this.#options.has(option)) {
+                    move = false;
+                    break;
+                }
+            }
+
+            if (move) this.#projects.append(project);
+        }
     }
 
     toggle_anim() {

@@ -11,10 +11,10 @@ const template = /*html*/`
     
     img {
         position: absolute;
-        top: calc(48%);
+        top: calc(42%);
         left: 50%;
-        height: 160px;
-        width: 160px;
+        height: 200px;
+        width: 200px;
         border-radius: 100px;
         border: 2px solid #BBBBBB;
         box-shadow: 0 0 10px gray;

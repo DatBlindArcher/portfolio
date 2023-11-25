@@ -29,12 +29,12 @@ const template = /*html*/`
     cursor: pointer;
 }
 
-.ui.grid {
+#projects.ui.grid {
     margin: 0em 8em;
     box-sizing: border-box;
 }
 
-.ui.grid > div {
+#projects.ui.grid > div {
     padding: 2em 2em !important;
 }
 
@@ -49,7 +49,6 @@ const template = /*html*/`
 }
 
 .project:hover {
-    cursor: pointer;
     transform: rotate3d(-.2, 1, .01, 16deg);
     background-color: rgb(255, 255, 255, .2);
 }
@@ -223,7 +222,7 @@ const template = /*html*/`
         </div>
         <div class="column">
             <a href="https://www.youtube.com/watch?v=BI_GpvyNDz4" target="_blank" class="project">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/visit.png" />
                 <h2>Visit Leuven <span class="xplab label"></span> <span class="ar label"></span></h2>
             </a>
         </div>
@@ -235,8 +234,8 @@ const template = /*html*/`
             </a>
         </div>
         <div class="column">
-            <a class="project">
-                <img src="images/drops_of_neon2.png" />
+            <a href="https://play.google.com/store/apps/details?id=com.XPLab.PipeXylo" blank="_target" class="project">
+                <img src="images/pvc.png" />
                 <h2>PVC Xylo <span class="xplab label"></span> <span class="mobile label"></span></h2>
             </a>
         </div>
@@ -249,27 +248,27 @@ const template = /*html*/`
         </div>
         <div class="column">
             <a href="https://www.ucll.be/sites/default/files/CampusMap/index.html" target="_blank" class="project">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/campus_map.png" />
                 <h2>360 Campus Map <span class="xplab label"></span> <span class="tech label"></span></h2>
             </a>
         </div>
 
         <div class="column">
-            <a class="project">
-                <img src="images/drops_of_neon2.png" />
+            <a href="https://www.youtube.com/watch?v=puQC-b7HXUE" target="_blank" class="project">
+                <img src="images/stadhuis.png" />
                 <h2>Leuven Stadhuis <span class="xplab label"></span> <span class="tech label"></span></h2>
             </a>
         </div>
         <div class="column">
-            <a class="project">
-                <img src="images/drops_of_neon2.png" />
+            <a href="https://www.ucll.be/nl/uitgelicht/de-ucll-stem-fiets" target="_blank" class="project">
+                <img src="images/fiets.jpg" />
                 <h2>Energie Fiets <span class="xplab label"></span> <span class="tech label"></span></h2>
             </a>
         </div>
 
         <div class="column">
-            <a class="project">
-                <img src="images/drops_of_neon2.png" />
+            <a href="https://play.google.com/store/apps/details?id=be.UCLL.XPLab.TheArtemisJourney" target="_blank"  class="project">
+                <img src="images/artemis.webp" style="object-position: top" />
                 <h2>Artemis Game <span class="xplab label"></span> <span class="game label"></span></h2>
             </a>
         </div>
@@ -282,13 +281,13 @@ const template = /*html*/`
 
         <div class="column">
             <a class="project">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/kinect.jpg" />
                 <h2>Roots <span class="xplab label"></span> <span class="tech label"></span></h2>
             </a>
         </div>
         <div class="column">
             <a class="project">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/unitree.webp" />
                 <h2>Robots <span class="xplab label"></span> <span class="tech label"></span></h2>
             </a>
         </div>
@@ -301,8 +300,8 @@ const template = /*html*/`
         </div>
         <div class="column">
             <a class="project">
-                <img src="images/drops_of_neon2.png" />
-                <h2>Meeting Online in VR <span class="ordina label"></span> <span class="vr label"></span></h2>
+                <img src="images/vr.png" />
+                <h2>Online Meeting in VR <span class="ordina label"></span> <span class="vr label"></span></h2>
             </a>
         </div>
     </div>
@@ -359,7 +358,7 @@ define('home-page', template, class extends Base {
                 let option = label.classList[0];
 
                 if (!this.#options.has(option)) {
-                    this.#hidden_projects.append(project);
+                    this.#hidden_projects.prepend(project);
                     break;
                 }
             }
@@ -377,7 +376,7 @@ define('home-page', template, class extends Base {
                 }
             }
 
-            if (move) this.#projects.append(project);
+            if (move) this.#projects.prepend(project);
         }
     }
 

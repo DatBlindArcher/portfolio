@@ -69,6 +69,7 @@ const template = /*html*/`
     height: 18.8em;
     box-shadow: rgb(0, 0, 0, .4) 0px 20px 30px -10px;
     object-fit: cover;
+    background-color: black;
 }
 
 .label {
@@ -163,51 +164,51 @@ const template = /*html*/`
         </div>
         <div class="column">
             <a route="/webgpu" class="project">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/webgpu.png" />
                 <h2>WebGPU Demo <span class="self label"></span> <span class="tech label"></span></h2>
             </a>
         </div>
         <div class="column">
             <a href="https://github.com/DatBlindArcher/DiscordUnity" class="project" target="_blank">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/c_sharp_hero.webp" />
                 <h2>Discord Unity <span class="self label"></span> <span class="software label"></span></h2>
             </a>
         </div>
         <div class="column">
             <a class="project">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/Kytharos.gif" />
                 <h2>Kytharos <span class="self label"></span> <span class="game label"></span></h2>
             </a>
         </div>
         <div class="column">
             <a class="project">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/Tron_LightCycle_Render.png" />
                 <h2>Tron Bike <span class="self label"></span> <span class="art label"></span></h2>
             </a>
         </div>
         <div class="column">
             <a class="project">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/BlueDemon.gif" style="object-fit: contain" />
                 <h2>Blue Devil <span class="self label"></span> <span class="art label"></span></h2>
             </a>
         </div>
 
         <div class="column">
             <a href="https://www.youtube.com/watch?v=Yl5jlBUigmU" target="_blank" class="project">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/ua.png" />
                 <h2>UA Stroke Recovery <span class="xplab label"></span> <span class="vr label"></span></h2>
             </a>
         </div>
         <div class="column">
             <a class="project">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/zmp.png" />
                 <h2>Suicide Prevention <span class="xplab label"></span> <span class="vr label"></span></h2>
             </a>
         </div>
 
         <div class="column">
             <a class="project">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/elz.png" />
                 <h2>Eerste Lijn Zorg <span class="xplab label"></span> <span class="game label"></span></h2>
             </a>
         </div>
@@ -220,7 +221,7 @@ const template = /*html*/`
 
         <div class="column">
             <a href="https://www.youtube.com/watch?v=GwdyTGCNNCE" target="_blank" class="project">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/eclips.png" />
                 <h2>ECLIPS <span class="xplab label"></span> <span class="vr label"></span></h2>
             </a>
         </div>
@@ -233,7 +234,7 @@ const template = /*html*/`
 
         <div class="column">
             <a class="project">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/movingMindsLevel5.png" />
                 <h2>Movings Minds App <span class="xplab label"></span> <span class="game label"></span></h2>
             </a>
         </div>
@@ -253,7 +254,7 @@ const template = /*html*/`
         <div class="column">
             <a class="project">
                 <img src="images/drops_of_neon2.png" />
-                <h2>EnergieFiets <span class="xplab label"></span> <span class="tech label"></span></h2>
+                <h2>Energie Fiets <span class="xplab label"></span> <span class="tech label"></span></h2>
             </a>
         </div>
 
@@ -265,7 +266,7 @@ const template = /*html*/`
         </div>
         <div class="column">
             <a href="https://uashome.eu" target="_blank" class="project">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/uashome.png" style="object-fit: contain; background-color: white" />
                 <h2>UASHome <span class="xplab label"></span> <span class="web label"></span></h2>
             </a>
         </div>
@@ -285,7 +286,7 @@ const template = /*html*/`
 
         <div class="column">
             <a href="https://vacatures.oost-vlaanderen.be" class="project" target="_blank">
-                <img src="images/drops_of_neon2.png" />
+                <img src="images/vacatures.png" />
                 <h2>Website Oost-Vlaanderen <span class="dileoz label"></span> <span class="web label"></span></h2>
             </a>
         </div>

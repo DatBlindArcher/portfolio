@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <title>ArchTech Web Components</title>
-    <script type="text/javascript" src="./index.js"></script>
     
     <style>
         html, body {
@@ -79,6 +78,51 @@
             font-style: normal;
         }
     </style>
+
+    <script>
+        let config = {};
+        let isDev = window.location.hostname == 'localhost' || window.location.hostname == '127.0.0.1';
+        let base_path = isDev ? '' : '/portfolio';
+
+        function loadPlugins(plugins, callback) {
+            let loaded = plugins.length;
+
+            plugins.forEach(plugin => {
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = base_path + `/plugins/${plugin}.js`;
+                script.onload = function() {
+                    if (--loaded == 0 && callback) {
+                        callback();
+                    }
+                };
+
+                document.head.appendChild(script);
+            });
+        }
+
+        function loadApp() {
+            var script = document.createElement('script');
+            script.type = 'module';
+            script.src = base_path + '/app.js';
+            script.onload = function() {
+                document.body.appendChild(document.createElement('app-χ'));
+            };
+            
+            document.head.appendChild(script);
+        }
+
+        function init() {
+            const plugins = ['globals', 'ape-ecs', 'matter', 'decomp'];
+
+            loadPlugins(plugins, async () => {
+                config = await (await fetch(base_path + (isDev ? '/config-dev.json' : '/config.json'))).json();
+                loadApp();
+            });
+        }
+
+        init();
+    </script>
 </head>
 <body>
 </body>

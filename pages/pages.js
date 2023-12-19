@@ -3,3 +3,5 @@ import './contact-page.js'
 import './dropsofneon-page.js'
 import './bullets-page.js';
 import './webgpu-page.js';
+
+import './demo/data-game-page.js';

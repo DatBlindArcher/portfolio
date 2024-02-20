@@ -9,6 +9,7 @@ const template = /*html*/`
     <route-X path="/dropsofneon" title="Drops Of Neon" component="dropsofneon-page"></route-X>
     <route-X path="/bullets" title="Bullet Hell" component="bullets-page"></route-X>
     <route-X path="/webgpu" title="webgpu" component="webgpu-page"></route-X>
+    <route-X path="/webgpu-dist" title="webgpu distance" component="webgpu-dist-page"></route-X>
 
     <route-X path="/demo/data" title="Data Science Game" component="data-game-page"></route-X>
     <outlet-X></outlet-X>

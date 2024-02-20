@@ -36,18 +36,21 @@ canvas {
 `;
 
 define('webgpu-page', template, class extends Base {
+    // WebGPU Context
     #device;
     #context;
     #canvasFormat;
+    #depthTexture;
+
+    // Camera Projection
+    #projBuffer;
+
+    // Time
     #timestamp;
     #timeBuffer;
-    #projBuffer;
-    #viewBuffer;
-    #viewBuffer2;
-    #depthTexture;
-    #bindGroupLayout;
 
-    #geometry;
+    // Entities
+    #cube;
     #sphere;
 
     async created() {
@@ -61,7 +64,7 @@ define('webgpu-page', template, class extends Base {
             return;
         }
 
-        this.initializeGeometry();
+        this.#cube = this.cube(1);
         this.#sphere = this.sphere(1, 16, 32);
         this.update(0);
     }
@@ -76,8 +79,8 @@ define('webgpu-page', template, class extends Base {
         this.#device.queue.writeBuffer(this.#timeBuffer, 0, timeData);
 
         // Update ViewMatrix
-        this.#device.queue.writeBuffer(this.#viewBuffer, 0, this.transformationMatrix(time, -2));
-        this.#device.queue.writeBuffer(this.#viewBuffer2, 0, this.transformationMatrix(time, 2));
+        this.#device.queue.writeBuffer(this.#cube.viewBuffer, 0, this.transformationMatrix(time, -1));
+        this.#device.queue.writeBuffer(this.#sphere.viewBuffer, 0, this.transformationMatrix(time, 1));
 
         const encoder = this.#device.createCommandEncoder();
         
@@ -97,11 +100,11 @@ define('webgpu-page', template, class extends Base {
             },
         });
 
-        // Draw Geometry
-        pass.setPipeline(this.#geometry.pipeline);
-        pass.setBindGroup(0, this.#geometry.bindGroup);
-        pass.setVertexBuffer(0, this.#geometry.vertexBuffer);
-        pass.draw(this.#geometry.vertexCount);
+        // Draw Cube
+        pass.setPipeline(this.#cube.pipeline);
+        pass.setBindGroup(0, this.#cube.bindGroup);
+        pass.setVertexBuffer(0, this.#cube.vertexBuffer);
+        pass.draw(this.#cube.vertexCount);
 
         // Draw Sphere
         pass.setBindGroup(0, this.#sphere.bindGroup);
@@ -153,21 +156,11 @@ define('webgpu-page', template, class extends Base {
             usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.UNIFORM
         });
 
-        this.#viewBuffer = this.#device.createBuffer({
-            size: 64,
-            usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.UNIFORM
-        });
-
-        this.#viewBuffer2 = this.#device.createBuffer({
-            size: 64,
-            usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.UNIFORM
-        });
-
         let perspective = this.perspective(60.0, 1, .2, 100);
         this.#device.queue.writeBuffer(this.#projBuffer, 0, perspective);
     }
 
-    initializeGeometry() {
+    cube() {
         const vertices = new Float32Array([
              1,-1, 1,  
             -1,-1, 1, 
@@ -218,6 +211,11 @@ define('webgpu-page', template, class extends Base {
             usage: GPUBufferUsage.VERTEX | GPUBufferUsage.COPY_DST,
         });
 
+        let viewBuffer = this.#device.createBuffer({
+            size: 64,
+            usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.UNIFORM
+        });
+
         this.#device.queue.writeBuffer(vertexBuffer, 0, vertices);
 
         const shader = this.#device.createShaderModule({
@@ -252,7 +250,7 @@ define('webgpu-page', template, class extends Base {
             `
         });
 
-        this.#bindGroupLayout = this.#device.createBindGroupLayout({
+        let bindGroupLayout = this.#device.createBindGroupLayout({
             entries: [{
                 binding: 0,
                 visibility: GPUShaderStage.VERTEX,
@@ -269,13 +267,13 @@ define('webgpu-page', template, class extends Base {
         });
 
         const bindGroup = this.#device.createBindGroup({
-            layout: this.#bindGroupLayout,
+            layout: bindGroupLayout,
             entries: [{
                 binding: 0,
                 resource: { buffer: this.#projBuffer },
             },{
                 binding: 1,
-                resource: { buffer: this.#viewBuffer },
+                resource: { buffer: viewBuffer },
             },{
                 binding: 2,
                 resource: { buffer: this.#timeBuffer },
@@ -284,7 +282,7 @@ define('webgpu-page', template, class extends Base {
 
         const pipelineLayout = this.#device.createPipelineLayout({
             bindGroupLayouts: [
-                this.#bindGroupLayout
+                bindGroupLayout
             ]
         });
 
@@ -321,11 +319,12 @@ define('webgpu-page', template, class extends Base {
             }
         });
 
-        this.#geometry = {
+        return {
             pipeline,
             bindGroup,
             vertexBuffer,
-            vertexCount: vertices.length / 3
+            vertexCount: vertices.length / 3,
+            viewBuffer
         };
     }
 
@@ -569,14 +568,35 @@ define('webgpu-page', template, class extends Base {
             }
         }
 
+        let viewBuffer = this.#device.createBuffer({
+            size: 64,
+            usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.UNIFORM
+        });
+
+        let bindGroupLayout = this.#device.createBindGroupLayout({
+            entries: [{
+                binding: 0,
+                visibility: GPUShaderStage.VERTEX,
+                buffer: {}
+            },{
+                binding: 1,
+                visibility: GPUShaderStage.VERTEX,
+                buffer: {}
+            },{
+                binding: 2,
+                visibility: GPUShaderStage.FRAGMENT,
+                buffer: {}
+            }]
+        });
+
         const bindGroup = this.#device.createBindGroup({
-            layout: this.#bindGroupLayout,
+            layout: bindGroupLayout,
             entries: [{
                 binding: 0,
                 resource: { buffer: this.#projBuffer },
             },{
                 binding: 1,
-                resource: { buffer: this.#viewBuffer2 },
+                resource: { buffer: viewBuffer },
             },{
                 binding: 2,
                 resource: { buffer: this.#timeBuffer },
@@ -587,7 +607,8 @@ define('webgpu-page', template, class extends Base {
             bindGroup,
             vertices: new Float32Array(vertices), 
             indices: new Int32Array(indices),
-            indexCount: indices.length
+            indexCount: indices.length,
+            viewBuffer
         };
 
         entity.vertexBuffer = this.#device.createBuffer({

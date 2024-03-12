@@ -165,15 +165,27 @@ const template = /*html*/`
     <div id="hidden_projects"></div>
     <div id="projects" class="ui three column grid">
         <div class="column">
-            <a route="/dropsofneon" class="project">
-                <img src="images/drops_of_neon2.png" />
-                <h2>Drops of Neon <span class="self label"></span> <span class="game label"></span></h2>                
+            <a route="/engine" class="project">
+                <img src="images/webgpu.png" />
+                <h2>WebGPU/DotNet Engine <span class="self label"></span> <span class="tech label"></span></h2>
+            </a>
+        </div>
+        <div class="column">
+            <a route="/dotnet" class="project">
+                <img src="images/c_sharp_hero.webp" />
+                <h2>DotNet Snake Demo <span class="self label"></span> <span class="tech label"></span></h2>
             </a>
         </div>
         <div class="column">
             <a route="/webgpu" class="project">
                 <img src="images/webgpu.png" />
                 <h2>WebGPU Demo <span class="self label"></span> <span class="tech label"></span></h2>
+            </a>
+        </div>
+        <div class="column">
+            <a route="/dropsofneon" class="project">
+                <img src="images/drops_of_neon2.png" />
+                <h2>Drops of Neon <span class="self label"></span> <span class="game label"></span></h2>                
             </a>
         </div>
         <div class="column">

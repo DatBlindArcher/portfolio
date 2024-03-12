@@ -1,4 +1,4 @@
-import { dotnet } from './_framework/dotnet.js'
+import { dotnet } from './core/dotnet.js'
 
 let status = document.getElementById("status");
 status.innerHTML = "Loading ...";

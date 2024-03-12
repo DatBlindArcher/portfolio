@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ArcherEngine</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./debug.js"></script>
+    <script src="./matrix.js"></script>
+    <script src="./render.js"></script>
+    <script type='module' src="./main.js"></script>
+</head>
+
+<body>
+    <style>
+        html, body {
+            color: white;
+            background: black;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+    <h1 id="status">Loading ...</h1>
+    <div id="game">
+        <h1>Game</h1>
+        <canvas id="surface" width="800" height="800"></canvas>
+    </div>
+    <br /><br />
+    <button id="showdebug">Show ECS</button>
+    <div id="ecs" class="hidden">
+        <h1>Entities</h1>
+        <div id="debug">
+            <h2>Entity</h2>
+            <h3>Component</h3><p>Value</p>
+            <h3>Component</h3><p>Value</p>
+            <h3>Component</h3><p>Value</p>
+        </div>
+    </div>
+</body>
+
+</html>

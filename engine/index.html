@@ -36,15 +36,21 @@
             width: 10em;
         }
 
-        #showdebug {
+        #fullscreen {
             position: absolute;
             top: 0;
             left: 0;
         }
 
+        #showdebug {
+            position: absolute;
+            top: 2.4em;
+            left: 0;
+        }
+
         #ecs {
             position: absolute;
-            top: 1.6em;
+            top: 4em;
             left: 0;
         }
     </style>
@@ -52,7 +58,7 @@
     <button id="play">Play</button>
     <div id="container" class="hidden">
         <canvas id="surface"></canvas>
-        <br /><br />
+        <button id="fullscreen">Fullscreen</button>
         <button id="showdebug">Show ECS</button>
         <div id="ecs" class="hidden">
             <div id="debug">

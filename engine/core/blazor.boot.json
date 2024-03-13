@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Game",
   "resources": {
-    "hash": "sha256-2UTrjrQlHbhY06mX/F1PCi7CRrXnhuJOR+PZEwDXDAs=",
+    "hash": "sha256-zI47uI5joNmPNsuc3p9YwKUc3QhK1APYh2oWjS13LKg=",
     "jsModuleNative": {
       "dotnet.native.8.0.1.zuyhfqselc.js": "sha256-SGOlISx+3G4kkvpC9Uq3qoPGsnjxGmW61QBev0lyI5U="
     },
@@ -189,11 +189,11 @@
       "netstandard.wasm": "sha256-2kH24/YfHmU3B4eYRyRmiwebYROM4+B9eDWKvMnUdP8=",
       "System.Private.CoreLib.wasm": "sha256-CsySKiP7HYY1pS8LTDE60EkqiX5oHb3WoEZHDNd1yK0=",
       "ArcherEngine.wasm": "sha256-UrAP3u4Pu/fPUv3MQYXuN4pqjWMJLfQ8E68asWFNA6g=",
-      "Game.wasm": "sha256-jJvGHbIkvDi+rWXSafBI9D4biN0yl10eishak8Em250="
+      "Game.wasm": "sha256-yrh7H5WnR8XSZC/Vb8EMr5NFi4UzT/epFg9wYZ/Evqw="
     },
     "pdb": {
       "ArcherEngine.pdb": "sha256-amRqea1GWEVzkz1m0BXfs+WjG+9pvfL/fLSzEEiZmuw=",
-      "Game.pdb": "sha256-gDMPW6D0v+C977r7CMnxaZZyyZKCa7KmIwjE9+XLcdI="
+      "Game.pdb": "sha256-+fb6h5yYq9Zk8N9goDLqcxJeA4tfHu8ozyqhKtvY9x0="
     }
   },
   "cacheBootResources": true,

@@ -1,5 +1,3 @@
-
-
 // WebGPU Context
 var device;
 var context;
@@ -383,6 +381,39 @@ async function initialize_webgpu() {
             lightPosition.byteLength
         );
     }
+}
+
+function renderResize() {
+    const canvas = document.querySelector("canvas");
+
+    depthTexture = device.createTexture({
+        size: [canvas.width, canvas.height],
+        format: 'depth24plus-stencil8',
+        usage: GPUTextureUsage.RENDER_ATTACHMENT,
+    });
+
+    renderPassDescriptor = {
+        colorAttachments: [
+            {
+                // view is acquired and set in render loop.
+                view: undefined,
+
+                clearValue: { r: 0.2, g: 0.2, b: 0.2, a: 1.0 },
+                loadOp: 'clear',
+                storeOp: 'store',
+            },
+        ],
+        depthStencilAttachment: {
+            view: depthTexture.createView(),
+
+            depthClearValue: 1.0,
+            depthLoadOp: 'clear',
+            depthStoreOp: 'store',
+            stencilClearValue: 0,
+            stencilLoadOp: 'clear',
+            stencilStoreOp: 'store',
+        },
+    };
 }
 
 const vertexCode = `

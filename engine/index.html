@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./debug.js"></script>
+    <script src="./audio.js"></script>
     <script src="./matrix.js"></script>
     <script src="./render.js"></script>
     <script type='module' src="./main.js"></script>
@@ -16,26 +17,50 @@
         html, body {
             color: white;
             background: black;
+            margin: 0;
+            position: relative;
+        }
+
+        canvas {
+            position: fixed;
         }
 
         .hidden {
             display: none;
         }
+
+        button {
+            background: white;
+            border: 0;
+            padding: .5em 2em;
+            width: 10em;
+        }
+
+        #showdebug {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #ecs {
+            position: absolute;
+            top: 1.6em;
+            left: 0;
+        }
     </style>
     <h1 id="status">Loading ...</h1>
-    <div id="game">
-        <h1>Game</h1>
-        <canvas id="surface" width="800" height="800"></canvas>
-    </div>
-    <br /><br />
-    <button id="showdebug">Show ECS</button>
-    <div id="ecs" class="hidden">
-        <h1>Entities</h1>
-        <div id="debug">
-            <h2>Entity</h2>
-            <h3>Component</h3><p>Value</p>
-            <h3>Component</h3><p>Value</p>
-            <h3>Component</h3><p>Value</p>
+    <button id="play">Play</button>
+    <div id="container" class="hidden">
+        <canvas id="surface"></canvas>
+        <br /><br />
+        <button id="showdebug">Show ECS</button>
+        <div id="ecs" class="hidden">
+            <div id="debug">
+                <h2>Entity</h2>
+                <h3>Component</h3><p>Value</p>
+                <h3>Component</h3><p>Value</p>
+                <h3>Component</h3><p>Value</p>
+            </div>
         </div>
     </div>
 </body>

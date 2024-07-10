@@ -40,7 +40,7 @@ const template = /*html*/`
 </style>
 <div class="bg">
     <div class="ui fluid card">
-        <div class="image"><img src="/images/rotterdam_bridge.jpg"></div>
+        <div class="image"><img src="../images/rotterdam_bridge.jpg"></div>
         <div class="content">
             <a class="header">TICKET ROTTERDAM</a>
             <div class="meta">
@@ -59,7 +59,7 @@ const template = /*html*/`
             </a>
         </div>
         <div class="ui bottom attached image">
-        <img src="/images/koolkerke_harmonietjes.jpg">
+        <img src="../images/koolkerke_harmonietjes.jpg">
         </div>
     </div>
 </div>

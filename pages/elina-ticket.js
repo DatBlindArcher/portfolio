@@ -53,10 +53,7 @@ const template = /*html*/`
             </div>
             </div>
             <div class="extra content">
-            <a>
-                <i class="user icon"></i>
-                De Harmonietjes
-            </a>
+            <div>De Harmonietjes</div>
         </div>
         <div class="ui bottom attached image">
         <img src="../images/koolkerke_harmonietjes.jpg">

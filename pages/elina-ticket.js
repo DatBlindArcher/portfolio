@@ -49,7 +49,9 @@ const template = /*html*/`
             <div class="description">
                 Wij willen jou mee op een weekendtrip Rotterdam!
                 <br>
-                Van Thibault, Rune, Michiel, Bert, Roeland, Evy, Fleur en Robbe.
+                Samen hebben we voor jou <b>€135</b> verzameld
+                <br>
+                Van Thibault, Rune, Torin, Michiel, Bert, Ward, Roeland, Evy, Fleur en Robbe.
             </div>
             </div>
             <div class="extra content">

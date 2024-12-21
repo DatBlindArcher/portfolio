@@ -118,7 +118,7 @@
             const plugins = ['globals', 'ape-ecs', 'matter', 'decomp'];
 
             loadPlugins(plugins, async () => {
-                config = await (await fetch(base_path + (isDev ? '/config-dev.json' : '/config.json'))).json();
+                config = await (await fetch(base_path + (isDev || isHost ? '/config-dev.json' : '/config.json'))).json();
                 loadApp();
             });
         }

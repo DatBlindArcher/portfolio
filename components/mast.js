@@ -80,7 +80,7 @@ define('mast', template, class extends Base {
         this.#running = true;
         this.imageObj = new Image();
         this.imageObj.onload = this.start.bind(this);
-        this.imageObj.src = "http://www.blog.jonnycornwell.com/wp-content/uploads/2012/07/Smoke10.png";
+        this.imageObj.src = "https://www.blog.jonnycornwell.com/wp-content/uploads/2012/07/Smoke10.png";
     }
 
     start() {

@@ -83,7 +83,8 @@
     <script>
         let config = {};
         let isDev = window.location.hostname == 'localhost' || window.location.hostname == '127.0.0.1';
-        let base_path = isDev ? '' : '/portfolio';
+        let isHost = window.location.hostname == 'archtech.be';
+        let base_path = isDev || isHost ? '' : '/portfolio';
 
         function loadPlugins(plugins, callback) {
             let loaded = plugins.length;
@@ -117,7 +118,7 @@
             const plugins = ['globals', 'ape-ecs', 'matter', 'decomp'];
 
             loadPlugins(plugins, async () => {
-                config = await (await fetch(base_path + (isDev ? '/config-dev.json' : '/config.json'))).json();
+                config = await (await fetch(base_path + (isDev || isHost ? '/config-dev.json' : '/config.json'))).json();
                 loadApp();
             });
         }

@@ -1,131 +1,173 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-    <meta charset="utf-8">
-    <title>ArchTech Web Components</title>
-    <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
-    
-    <style>
-        html, body {
-            margin: 0;
-            width: 100%;
-            height: 100%;
-        }
+<html>
+    <head>
+        <title>ArchTech</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        /* width */
-        ::-webkit-scrollbar {
-            width: 10px;
-            background: #333333;
-        }
-
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: #222222;
-            border-radius: 10px;
-        }
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Days+One&family=Graduate&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/uikit.min.css" />
         
-        @font-face {
-            font-family: University;
-            src: url(fonts/University.ttf);
-        }
+        <script src="js/uikit.min.js"></script>
+        <script src="js/uikit-icons.min.js"></script>
+        <script src="js/mast.js"></script>
+        <style>
+            html, body {
+                max-width: 100%;
+                color: #EEEEEE;
+            }
 
-        @font-face {
-            font-family: Robotech;
-            src: url(fonts/ROBOTECH\ GP.ttf);
-        }
+            .bg {
+                z-index: -2;   
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                background: #111111;
+            }
 
-        @font-face {
-            font-family: Fira;
-            src: url(fonts/fira/FiraSans-Thin.ttf);
-        }
+            .bg-mast {
+                z-index: -1;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
 
-        @font-face {
-            font-family: 'Icons';
-            src: url("semantic/themes/default/assets/fonts/icons.eot");
-            src: url("semantic/themes/default/assets/fonts/icons.eot?#iefix") format('embedded-opentype'), url("semantic/themes/default/assets/fonts/icons.woff2") format('woff2'), url("semantic/themes/default/assets/fonts/icons.woff") format('woff'), url("semantic/themes/default/assets/fonts/icons.ttf") format('truetype'), url("semantic/themes/default/assets/fonts/icons.svg#icons") format('svg');
-            font-style: normal;
-            font-weight: normal;
-            font-variant: normal;
-            text-decoration: inherit;
-            text-transform: none;
-        }
+            .bg-mast > canvas {
+                width: 100%;
+                height: 100%;
+            }
 
-        @font-face {
-            font-family: 'outline-icons';
-            src: url("semantic/themes/default/assets/fonts/outline-icons.eot");
-            src: url("semantic/themes/default/assets/fonts/outline-icons.eot?#iefix") format('embedded-opentype'), url("semantic/themes/default/assets/fonts/outline-icons.woff2") format('woff2'), url("semantic/themes/default/assets/fonts/outline-icons.woff") format('woff'), url("semantic/themes/default/assets/fonts/outline-icons.ttf") format('truetype'), url("semantic/themes/default/assets/fonts/outline-icons.svg#icons") format('svg');
-            font-style: normal;
-            font-weight: normal;
-            font-variant: normal;
-            text-decoration: inherit;
-            text-transform: none;
-        }
+            #pause {    
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                z-index: 1;
+                height: 22px;
+                color: #111111;
+                border: 1px solid #111111;
+                border-radius: 16px;
+            }
 
-        @font-face {
-            font-family: 'brand-icons';
-            src: url("semantic/themes/default/assets/fonts/brand-icons.eot");
-            src: url("semantic/themes/default/assets/fonts/brand-icons.eot?#iefix") format('embedded-opentype'), url("semantic/themes/default/assets/fonts/brand-icons.woff2") format('woff2'), url("semantic/themes/default/assets/fonts/brand-icons.woff") format('woff'), url("semantic/themes/default/assets/fonts/brand-icons.ttf") format('truetype'), url("semantic/themes/default/assets/fonts/brand-icons.svg#icons") format('svg');
-            font-style: normal;
-            font-weight: normal;
-            font-variant: normal;
-            text-decoration: inherit;
-            text-transform: none;
-        }
+            #logo {
+                height: 200px;
+                width: 200px;
+                border-radius: 100px;
+                border: 2px solid #BBBBBB;
+                box-shadow: 0 0 10px gray;
+                background: radial-gradient(#555555, #111111);
+                color: white;
+                text-align: center;
+                line-height: 22px;
+                font-size: larger;
+                font-family: "Days One", serif;
+            }
 
-        @font-face {
-            font-family: 'Dropdown';
-            src: url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAVgAA8AAAAACFAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABWAAAABwAAAAchGgaq0dERUYAAAF0AAAAHAAAAB4AJwAPT1MvMgAAAZAAAABDAAAAVnW4TJdjbWFwAAAB1AAAAEsAAAFS8CcaqmN2dCAAAAIgAAAABAAAAAQAEQFEZ2FzcAAAAiQAAAAIAAAACP//AANnbHlmAAACLAAAAQoAAAGkrRHP9WhlYWQAAAM4AAAAMAAAADYPK8YyaGhlYQAAA2gAAAAdAAAAJANCAb1obXR4AAADiAAAACIAAAAiCBkAOGxvY2EAAAOsAAAAFAAAABQBnAIybWF4cAAAA8AAAAAfAAAAIAEVAF5uYW1lAAAD4AAAATAAAAKMFGlj5HBvc3QAAAUQAAAARgAAAHJoedjqd2ViZgAABVgAAAAGAAAABrO7W5UAAAABAAAAANXulPUAAAAA1r4hgAAAAADXu2Q1eNpjYGRgYOABYjEgZmJgBEIOIGYB8xgAA/YAN3jaY2BktGOcwMDKwMI4jTGNgYHBHUp/ZZBkaGFgYGJgZWbACgLSXFMYHFT/fLjFeOD/AQY9xjMMbkBhRpAcAN48DQYAeNpjYGBgZoBgGQZGBhDwAfIYwXwWBgMgzQGETAwMqn8+8H649f8/lHX9//9b7Pzf+fWgusCAkY0BzmUE6gHpQwGMDMMeAACbxg7SAAARAUQAAAAB//8AAnjadZBPSsNAGMXfS+yMqYgOhpSuSlKadmUhiVEhEMQzFF22m17BbbvzCh5BXCUn6EG8gjeQ4DepwYo4i+/ffL95j4EDA+CFC7jQuKyIeVHrI3wkleq9F7XrSInKteOeHdda8bOoaeepSc00NWPz/LRec9G8GabyGtEdF7h19z033GAMTK7zbM42xNEZpzYof0RtQ5CUHAQJ73OtVyutc+3b7Ou//b8XNlsPx3jgjUifABdhEohKJJL5iM5p39uqc7X1+sRQSqmGrUVhlsJ4lpmEUVwyT8SUYtg0P9DyNzPADDs+tjrGV6KRCRfsui3eHcL4/p8ZXvfMlcnEU+CLv7hDykOP+AKTPTxbAAB42mNgZGBgAGKuf5KP4vltvjLIMzGAwLV9ig0g+vruFFMQzdjACOJzMIClARh0CTJ42mNgZGBgPPD/AJD8wgAEjA0MjAyogAMAbOQEAQAAAAC7ABEAAAAAAKoAAAH0AAABgAAAAUAACAFAAAgAwAAXAAAAAAAAACoAKgAqADIAbACGAKAAugDSeNpjYGRgYOBkUGFgYgABEMkFhAwM/xn0QAIADdUBdAB42qWQvUoDQRSFv3GjaISUQaymSmGxJoGAsRC0iPYLsU50Y6IxrvlRtPCJJKUPIBb+PIHv4EN4djKuKAqCDHfmu+feOdwZoMCUAJNbAlYUMzaUlM14jjxbngOq7HnOia89z1Pk1vMCa9x7ztPkzfMyJbPj+ZGi6Xp+omxuPD+zaD7meaFg7mb8GrBqHmhwxoAxlm0uiRkpP9X5m26pKRoMxTGR1D49Dv/Yb/91o6l8qL6eu5n2hZQzn68utR9m3FU2cB4t9cdSLG2utI+44Eh/P9bqKO+oJ/WxmXssj77YkrjasZQD6SFddythk3Wtzrf+UF2p076Udla1VNzsERP3kkjVRKel7mp1udXYcHtZSlV7RfmJe1GiFWveluaeKD5/MuJcSk8Tpm/vvwPIbmJleNpjYGKAAFYG7ICTgYGRiZGZkYWRlZGNkZ2Rg5GTLT2nsiDDEEIZsZfmZRqZujmDaDcDAxcI7WIOpS2gtCWUdgQAZkcSmQAAAAFblbO6AAA=) format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-    </style>
+            #logo > img {
+                height: 70%;
+                margin-top: 4px;
+            }
+
+            .pusher-top {
+                height: 24em;
+            }
+
+            .pusher-bottom {
+                height: 12em;
+            }
+
+            .page {
+                overflow-y: hidden;
+                overflow-x: hidden;
+            }
+
+            .uk-button {
+                border-radius: 5px;
+                color: #EEEEEE;
+            }
+
+            .footer {
+                background-color: #222222;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="pause" uk-icon="triangle-right"></button>
+        <div class="bg-mast" uk-parallax="y: -5%"><canvas id="mast"></canvas></div>
+        <div class="bg"></div>
+
+        <div class="page">
+            <div class="pusher-top"></div>
+
+            <div class="uk-flex uk-flex-center">
+                <div id="logo" uk-parallax="opacity: 1,0; y: 0,-400; scale: 1,.5; end: 15vh;">
+                    <img src="img/Logo.png" />
+                    ARCHTECH
+                </div>
+            </div>
+
+            <div class="uk-section">
+                <div class="uk-container">
+                    <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+                        <h1 uk-parallax="opacity: 0,1,1; y: -100,0,0; x: 100,100,0; scale: 2,1,1; end: 50vh + 50%;">Web</h1>
+                        <div uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; end: 50vh + 50%;">
+                            Need a custom website design tailored to your business?
+                            <br>
+                            <br>
+                            <button class="uk-button uk-button-default">Take a look at examples</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="uk-section">
+                <div class="uk-container">
+                    <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+                        <h1 uk-parallax="opacity: 0,1,1; y: -100,0,0; x: 100,100,0; scale: 2,1,1; end: 50vh + 50%;">3D</h1>
+                        <div uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; end: 50vh + 50%;">
+                            From simulations to gamification, education and innovation. Share your ideas and we can make it a reality.
+                            <br>
+                            <br>
+                            <button class="uk-button uk-button-default">Take a look at some projects</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="uk-section">
+                <div class="uk-container">
+                    <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+                        <h1 uk-parallax="opacity: 0,1,1; y: -100,0,0; x: 100,100,0; scale: 2,1,1; end: 50vh + 50%;">Courses</h1>
+                        <duv uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; end: 50vh + 50%;">
+                            Looking for English or Dutch courses in the broad spectrum of software engineering?
+                            <br>
+                            <br>
+                            <button class="uk-button uk-button-default">Take a look at our knowledge matrix</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pusher-bottom"></div>
+
+            <div class="footer uk-section uk-section-muted" uk-parallax="opacity: 0,1; end: 100%;">
+                <div class="uk-flex uk-flex-center">
+                    <div class="uk-card uk-card-secondary uk-card-body uk-card uk-card-hover uk-card-large">
+                        <h3 class="uk-card-title">Get in Contact!</h3>
+                        <a href="mailto:robbe@archtech.be" class="uk-button uk-button-primary uk-width-1-1">Send Mail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 
     <script>
-        let config = {};
-        let isDev = window.location.hostname == 'localhost' || window.location.hostname == '127.0.0.1';
-        let isHost = window.location.hostname == 'archtech.be';
-        let base_path = isDev || isHost ? '' : '/portfolio';
+        var mast = new Mast();
+        mast.init();
 
-        function loadPlugins(plugins, callback) {
-            let loaded = plugins.length;
-
-            plugins.forEach(plugin => {
-                var script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.src = base_path + `/plugins/${plugin}.js`;
-                script.onload = function() {
-                    if (--loaded == 0 && callback) {
-                        callback();
-                    }
-                };
-
-                document.head.appendChild(script);
-            });
-        }
-
-        function loadApp() {
-            var script = document.createElement('script');
-            script.type = 'module';
-            script.src = base_path + '/app.js';
-            script.onload = function() {
-                document.body.appendChild(document.createElement('app-χ'));
-            };
-            
-            document.head.appendChild(script);
-        }
-
-        function init() {
-            const plugins = ['globals', 'ape-ecs', 'matter', 'decomp'];
-
-            loadPlugins(plugins, async () => {
-                config = await (await fetch(base_path + (isDev || isHost ? '/config-dev.json' : '/config.json'))).json();
-                loadApp();
-            });
-        }
-
-        init();
+        document.getElementById("pause").onclick = () => {
+            mast.isRunning = !mast.isRunning;
+        };
     </script>
-</head>
-<body>
-</body>
 </html>

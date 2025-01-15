@@ -5,6 +5,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+        <link rel="icon" href="img/Logo.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Days+One&family=Graduate&display=swap" rel="stylesheet">
@@ -51,22 +52,36 @@
             }
 
             #logo {
-                height: 200px;
-                width: 200px;
-                border-radius: 100px;
+                height: 320px;
+                width: 320px;
+                border-radius: 160px;
                 border: 2px solid #BBBBBB;
                 box-shadow: 0 0 10px gray;
                 background: radial-gradient(#555555, #111111);
                 color: white;
                 text-align: center;
                 line-height: 22px;
-                font-size: larger;
+                font-size: x-large;
                 font-family: "Days One", serif;
             }
 
             #logo > img {
                 height: 70%;
                 margin-top: 4px;
+            }
+
+            #logo-fixed {
+                position: fixed;
+                top: 10px;
+                left: 16px;
+                height: 40px;
+                color: white;
+                font-family: "Days One", serif;
+            }
+
+            #logo-fixed > img {
+                width: 40px;
+                height: 40px;
             }
 
             .pusher-top {
@@ -90,12 +105,34 @@
             .footer {
                 background-color: #222222;
             }
+
+            h2.uk-card-title {
+                font-size: 3em;
+            }
+
+            .uk-card img {
+                padding: 10%;
+            }
+
+            a.uk-slidenav-large {
+                color: #A8FF38 !important;
+            }
+
+            .uk-slideshow-items img {
+                object-fit: contain;
+                width: 100%;
+                height: 100%;
+            }
         </style>
     </head>
     <body>
         <button id="pause" uk-icon="triangle-right"></button>
         <div class="bg-mast" uk-parallax="y: -5%"><canvas id="mast"></canvas></div>
         <div class="bg"></div>
+        <div id="logo-fixed" uk-parallax="target: #logo; opacity: 0,1; end: 15vh;">
+            <img src="img/Logo.png" />
+            ARCHTECH
+        </div>
 
         <div class="page">
             <div class="pusher-top"></div>
@@ -109,13 +146,21 @@
 
             <div class="uk-section">
                 <div class="uk-container">
-                    <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
-                        <h1 uk-parallax="opacity: 0,1,1; y: -100,0,0; x: 100,100,0; scale: 2,1,1; end: 50vh + 50%;">Web</h1>
-                        <div uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; end: 50vh + 50%;">
-                            Need a custom website design tailored to your business?
-                            <br>
-                            <br>
-                            <button class="uk-button uk-button-default">Take a look at examples</button>
+                    <div class="uk-card uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; end: 50vh + 50%;">
+                        <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
+                            <img src="img/static-website.svg" alt="" uk-fit>
+                        </div>
+                        <div>
+                            <div class="uk-card-body">
+                                <h2 class="uk-card-title" uk-parallax="opacity: 0,1,1; y: -100,0,0; scale: 2,1,1; end: 50vh + 50%;">Web</h2>
+                                <div>
+ArchTech blends cutting-edge design with user-focused functionality from the ground up to ensure your site captivates visitors, drives conversions, and sets your business apart. Whether you need a sleek portfolio, an e-commerce powerhouse, or a corporate hub, we tailor every element to align with your brand and goals.
+<br><br>
+Don’t let an outdated or ineffective website hold you back. Let’s build a platform that turns clicks into customers and browsers into loyal fans. Get in contact today, and let’s bring your vision to life!
+<br><br>
+                                    <button class="uk-button uk-button-default" uk-toggle="target: #modal-web">Take a look at some examples</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -123,13 +168,21 @@
 
             <div class="uk-section">
                 <div class="uk-container">
-                    <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
-                        <h1 uk-parallax="opacity: 0,1,1; y: -100,0,0; x: 100,100,0; scale: 2,1,1; end: 50vh + 50%;">3D</h1>
-                        <div uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; end: 50vh + 50%;">
-                            From simulations to gamification, education and innovation. Share your ideas and we can make it a reality.
-                            <br>
-                            <br>
-                            <button class="uk-button uk-button-default">Take a look at some projects</button>
+                    <div class="uk-card uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; end: 50vh + 50%;">
+                        <div class="uk-card-media-left uk-cover-container">
+                            <img src="img/augmented-reality.svg" alt="" uk-fit>
+                        </div>
+                        <div>
+                            <div class="uk-card-body">
+                                <h2 class="uk-card-title" uk-parallax="opacity: 0,1,1; y: -100,0,0; scale: 2,1,1; end: 50vh + 50%;">3D & UX</h2>
+                                <div>
+Ready to captivate, engage, and inspire? At ArchTech, we specialize in creating immersive 3D simulations, engaging games, and innovative gamification solutions that transform how people interact with your brand.
+<br><br>
+Whether you’re looking to train teams with lifelike simulations, develop a game that resonates with your audience, or gamify your processes to boost engagement, we’re here to turn your idea into reality.
+<br><br>
+                                    <button class="uk-button uk-button-default" uk-toggle="target: #modal-3d">Take a look at our portfolio</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -137,13 +190,21 @@
 
             <div class="uk-section">
                 <div class="uk-container">
-                    <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
-                        <h1 uk-parallax="opacity: 0,1,1; y: -100,0,0; x: 100,100,0; scale: 2,1,1; end: 50vh + 50%;">Courses</h1>
-                        <duv uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; end: 50vh + 50%;">
-                            Looking for English or Dutch courses in the broad spectrum of software engineering?
-                            <br>
-                            <br>
-                            <button class="uk-button uk-button-default">Take a look at our knowledge matrix</button>
+                    <div class="uk-card uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; end: 50vh + 50%;">
+                        <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
+                            <img src="img/professor.svg" alt="" uk-fit>
+                        </div>
+                        <div>
+                            <div class="uk-card-body">
+                                <h2 class="uk-card-title" uk-parallax="opacity: 0,1,1; y: -100,0,0; scale: 2,1,1; end: 50vh + 50%;">Courses</h2>
+                                <div>
+From beginner-friendly introductions to advanced, cutting-edge techniques, our courses are crafted to ensure you learn the tools, technologies, and best practices that matter for your business. 
+<br><br>
+Whether it’s mastering programming languages, game development or creating websites, our hands-on approach ensures you’re not just learning—you’re building real-world skills.
+<br><br>
+                                    <button class="uk-button uk-button-default" uk-toggle="target: #modal-courses">Take a look at our knowledge matrix</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -152,12 +213,104 @@
             <div class="pusher-bottom"></div>
 
             <div class="footer uk-section uk-section-muted" uk-parallax="opacity: 0,1; end: 100%;">
-                <div class="uk-flex uk-flex-center">
-                    <div class="uk-card uk-card-secondary uk-card-body uk-card uk-card-hover uk-card-large">
-                        <h3 class="uk-card-title">Get in Contact!</h3>
-                        <a href="mailto:robbe@archtech.be" class="uk-button uk-button-primary uk-width-1-1">Send Mail</a>
+                <div class="uk-container uk-container-small">
+                    <div class="uk-card uk-card-secondary uk-card-body uk-card uk-card-hover uk-card-large uk-width-1-1">
+                        <div>
+                            <fieldset class="uk-fieldset">
+                                <legend class="uk-legend">Get in Contact!</legend>
+                        
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">Interested In</label>
+                                    <select id="form-int" class="uk-select" aria-label="Select">
+                                        <option>Web</option>
+                                        <option>3D & UX</option>
+                                        <option>Courses</option>
+                                    </select>
+                                </div>
+                        
+                                <!--div class="uk-margin">
+                                    <label class="uk-form-label">Email Address</label>
+                                    <input id="form-mail" class="uk-input" type="email" placeholder="Email" aria-label="Input">
+                                </div-->
+                        
+                                <div class="uk-margin">
+                                    <label class="uk-form-label">Message</label>
+                                    <textarea id="form-msg" class="uk-textarea" rows="5" placeholder="Message" aria-label="Textarea"></textarea>
+                                </div>
+                        
+                                <button onclick="open_mail()" class="uk-button uk-button-primary uk-width-1-1">Send</button>
+                            </fieldset>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div id="modal-web" class="uk-modal-container" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body">
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+                <h2 class="uk-modal-title">Web Examples</h2>
+
+                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow>
+
+                    <div class="uk-slideshow-items">
+                        <div>
+                            <img src="img/web/VacatureWebsite_Oost-Vlaanderen.png" alt="" uk-fit>
+                        </div>
+                        <div>
+                            <img src="img/web/UASHome.png" alt="" uk-fit>
+                        </div>
+                    </div>
+                
+                    <a class="uk-slidenav-large uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                    <a class="uk-slidenav-large uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+                </div>            
+            </div>  
+        </div>
+
+        <div id="modal-3d" class="uk-modal-container" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body">
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+                <h2 class="uk-modal-title">Portfolio</h2>
+                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow>
+
+                    <div class="uk-slideshow-items">
+                        <div>
+                            <img src="img/ux/campus_map.png" alt="">
+                        </div>
+                        <div>
+                            <img src="img/ux/pvc.png" alt="">
+                        </div>
+                        <div>
+                            <img src="img/ux/Kytharos.gif" alt="">
+                        </div>
+                        <div>
+                            <img src="img/ux/fiets.jpg" alt="">
+                        </div>
+                    </div>
+                
+                    <a class="uk-slidenav-large uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                    <a class="uk-slidenav-large uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+                </div>            
+            </div>
+        </div>
+
+        <div id="modal-courses" class="uk-modal-container" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body">
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+                <h2 class="uk-modal-title">Knowledge Matrix</h2>
+
+                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow>
+
+                    <div class="uk-slideshow-items">
+                        <div>
+                            <img src="img/knowledge.png" alt="">
+                        </div>
+                    </div>
+                
+                    <a class="uk-slidenav-large uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                    <a class="uk-slidenav-large uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+                </div> 
             </div>
         </div>
     </body>
@@ -169,5 +322,16 @@
         document.getElementById("pause").onclick = () => {
             mast.isRunning = !mast.isRunning;
         };
+
+        function open_mail() {
+            var int = document.getElementById("form-int").value;
+            var msg = document.getElementById("form-msg").value;
+            var href = `mailto:robbe@archtech.be?subject=Contact - ${int}&body=${encodeURIComponent(msg)}`;
+
+            var a = document.createElement('a');
+            a.href = href;
+            a.click();
+            a.remove();
+        }
     </script>
 </html>

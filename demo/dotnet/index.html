@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Archtech - ArcherEngine</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/Logo.png">
+    <script type='module' src="./main.js"></script>
+</head>
+
+<body>
+    <style>
+        td {
+            width: 20px;
+            height: 20px;
+            background-color: gainsboro;
+        }
+
+        td.green {
+            background-color: green;
+        }
+
+        td.red {
+            background-color: darkred;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+    <div id="game">
+        <h1>Snake</h1>
+        <table>
+            <tbody id="grid">
+
+            </tbody>
+        </table>
+    </div>
+    <br /><br />
+    <a href="/portfolio"><button>Portfolio</button></a>
+    <button id="showdebug">Show ECS</button>
+    <a href="/demo/dotnet"><button>Restart</button></a>
+    <div id="ecs" class="hidden">
+        <h1>Entities</h1>
+        <div id="debug">
+            <h2>Entity</h2>
+            <h3>Component</h3><p>Value</p>
+            <h3>Component</h3><p>Value</p>
+            <h3>Component</h3><p>Value</p>
+        </div>
+    </div>
+</body>
+
+</html>

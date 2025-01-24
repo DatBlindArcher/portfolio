@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archtech - Drops of Neon</title>
+
+    <link rel="icon" href="/img/Logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/semantic/semantic.min.css" />
+    <link rel="stylesheet" href="index.css" />
+
+    <script src="/semantic/jquery.min.js"></script>
+    <script src="/semantic/semantic.min.js"></script>
+    <script src="decomp.js"></script>
+    <script src="matter.js"></script>
+    <script src="ape-ecs.js"></script>
+</head>
+<body>
+    <div class="ui container">
+        <h1 class="ui inverted center aligned huge header">Drops of Neon</h1>
+        <div class="ui inverted segment">      
+            <div class="ui left rail">
+                <div class="ui inverted segment">
+                    <h3 class="ui dividing inverted header">Controls</h3>
+                    <div class="ui list">
+                        <div class="item">Guide the hover container with your <b class="strong">mouse</b> to catch the falling neon drops.</div>
+                        <div class="item">When the container scans <b class="strong">4 drops</b> or more of the <b class="strong">same color</b> touching, it will disintegrate them.</div>
+                        <div class="item"><b class="strong">Score</b> as many points as you can by disintegrating drops.</div>
+                        <div class="item">But don't drop them or you will catch a <b class="strong">game over</b>.</div>
+                        <br>
+                        <a href="/portfolio" class="ui primary button">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+            <div class="ui right rail">
+                <div class="ui inverted segment">
+                    <h3 class="ui dividing inverted header">Description</h3>
+                    <div class="ui list">
+                        <div class="item">Ludum Dare 49</div>
+                        <div class="item">Theme: Unstable</div>
+                        <div class="item">Made By: Blind Archer</div>
+                        <div class="item">Framework:</div>
+                        <div class="item">&nbsp;&nbsp;Architecture: Ape ECS</div>
+                        <div class="item">&nbsp;&nbsp;Physics: Matter JS</div>
+                        <div class="item">&nbsp;&nbsp;Layout: Semantic UI</div>
+                        <div class="item">Audio:</div>
+                        <div class="item">&nbsp;&nbsp;Sound Effects: SFXR</div>
+                        <div class="item">&nbsp;&nbsp;
+                            <input type="range" id="sfx_slider" min="0" max="100" value="50">
+                        </div>
+                        <div class="item">&nbsp;&nbsp;Music: Bespoke Synth</div>
+                        <div class="item">&nbsp;&nbsp;
+                            <input type="range" id="bg_slider" min="0" max="100" value="50">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img id="heart_0" class="heart" width="16" height="16" src="/img/heart.png" />
+            <img id="heart_1" class="heart" width="16" height="16" src="/img/heart.png" />
+            <img id="heart_2" class="heart" width="16" height="16" src="/img/heart.png" />
+            <img id="heart_3" class="heart" width="16" height="16" src="/img/heart.png" />
+            <div class="score"><span class="score_value">1</span><img class="drop" width="12" height="12" src="/img/drop.png" /></div>    
+            <canvas id='game' width="800" height="600"></canvas>
+            <div id="game_start" class="overlay">
+                <p>Somewhere deep in the dark web drops suddenly appeared to turn neon. Your job is to capture and destroy them. 
+                    Are you the one fit enough in this unstable environment?</p>
+                <button onclick="start()" class="ui primary button">Start Game</button>
+            </div>
+            <div id="game_over" class="overlay">
+                <h2 class="ui center aligned inverted huge header">Game Over</h2>
+                <div>Score: <span class="score_value">1</span><img class="drop" width="12" height="12" src="/img/drop.png" /></div>
+                <button onclick="retry()" class="ui primary button">Try Again</button>
+                <div class="div2">Want to change difficulty?</div>
+                <div id="difficulty" class="ui three item inverted menu">
+                    <a id="easy" onclick="setEasy()" class="item">Easy</a>
+                    <a id="medium" onclick="setMedium()" class="active item">Default</a>
+                    <a id="hard" onclick="setHard()" class="item">Hard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import Demo from "./index.js";
+
+        window.demo = new Demo();
+        window.demo.init();
+    </script>
+
+    <script>
+        function start() {
+            window.demo.start();
+        }
+
+        function retry() {
+            window.demo.retry();
+        }
+
+        function setEasy() {
+            window.demo.setEasy();
+        }
+
+        function setMedium() {
+            window.demo.setMedium();
+        }
+
+        function setHard() {
+            window.demo.setHard();
+        }
+    </script>
+</body>
+</html>

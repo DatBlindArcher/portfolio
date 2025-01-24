@@ -5,19 +5,23 @@
     <title>Archer Portfolio</title>
     
     <link rel="icon" href="/img/Logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Days+One&family=Graduate&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="semantic/semantic.min.css" />
+    <link rel="stylesheet" href="/semantic/semantic.min.css" />
     <link rel="stylesheet" href="css/portfolio.css" />
     <link rel="stylesheet" href="css/mast.css" />
     <link rel="stylesheet" href="css/hex.css" />
 
-    <script src="semantic/jquery.min.js"></script>
-    <script src="semantic/semantic.min.js"></script>
+    <script src="/semantic/jquery.min.js"></script>
+    <script src="/semantic/semantic.min.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/mast.js"></script>
         
     <style>
+        @font-face {
+            font-family: Fira;
+            src: url(/fonts/fira/FiraSans-Thin.ttf);
+        }
+
         html, body {
             margin: 0;
             width: 100%;
@@ -52,25 +56,25 @@
         <div id="hidden_projects"></div>
         <div id="projects" class="ui three column grid">
             <div class="column">
-                <a route="/engine" class="project">
-                    <img src="/img/portfolio/webgpu.png" />
+                <a href="/demo/engine" class="project">
+                    <img src="/img/portfolio/engine.png" />
                     <h2>WebGPU/DotNet Engine <span class="self label"></span> <span class="tech label"></span></h2>
                 </a>
             </div>
             <div class="column">
-                <a route="/dotnet" class="project">
+                <a href="/demo/dotnet" class="project">
                     <img src="/img/portfolio/c_sharp_hero.webp" />
                     <h2>DotNet Snake Demo <span class="self label"></span> <span class="tech label"></span></h2>
                 </a>
             </div>
             <div class="column">
-                <a route="/webgpu" class="project">
+                <a href="/demo/webgpu" class="project">
                     <img src="/img/portfolio/webgpu.png" />
                     <h2>WebGPU Demo <span class="self label"></span> <span class="tech label"></span></h2>
                 </a>
             </div>
             <div class="column">
-                <a route="/dropsofneon" class="project">
+                <a href="/demo/dropsofneon" class="project">
                     <img src="/img/portfolio/drops_of_neon2.png" />
                     <h2>Drops of Neon <span class="self label"></span> <span class="game label"></span></h2>                
                 </a>

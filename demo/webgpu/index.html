@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archtech - WebGPU Demo</title>
+    <link rel="icon" href="/img/Logo.png">
+    <script src="webgpu.js"></script>
+
+    <style>
+        html, body {
+            text-align: center;
+            background-color: black;
+        }
+        
+        canvas {
+            width: 800px;
+            height: 800px;
+        }
+        
+        .fps {
+            top: 0;
+            right: 0;
+            position: absolute;
+            color: white;
+        }
+        
+        .error {
+            position: absolute;
+            color: red;
+        }
+        
+        .hidden {
+            display: none;
+        }
+
+        #back {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        #back button {
+            width: 12em;
+            height: 2em;
+        }
+    </style>
+</head>
+<body>
+    <a href="/portfolio" id="back"><button>Portfolio</button></a>
+    <div>
+        <div class="error hidden"></div>
+        <div class="fps"></div>
+        <canvas width="800" height="800"></canvas>
+    </div>
+    <script>
+        var demo = new WebGPUDemo();
+        demo.init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Archer Portfolio</title>
+    
+    <link rel="icon" href="/img/Logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Days+One&family=Graduate&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="semantic/semantic.min.css" />
+    <link rel="stylesheet" href="css/portfolio.css" />
+    <link rel="stylesheet" href="css/mast.css" />
+    <link rel="stylesheet" href="css/hex.css" />
+
+    <script src="semantic/jquery.min.js"></script>
+    <script src="semantic/semantic.min.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script src="js/mast.js"></script>
+        
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            font-family: "Days One", serif;
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+            background: #333333;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #222222;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button class="ui basic mini black icon button" id="pause"><i class="pause black icon"></i></button>
+    <div class="main">
+        <img src="/img/profile.png" />
+        <h1 class="header">Archer</h1>
+        <h2 class="meta">a.k.a. Robbe Decraemer</h2>
+        <canvas id="screen"></canvas>
+    </div>
+    <div class="games hex_pattern">
+        <div class="filters">Companies: <span class="self label"></span> <span class="xplab label"></span> <span class="dileoz label"></span> <span class="ordina label"></span></div>
+        <div class="filters">Filters: <span class="game label"></span> <span class="web label"></span> <span class="tech label"></span> <span class="art label"></span> <span class="software label"></span> <span class="vr label"></span> <span class="ar label"></span> <span class="mobile label"></span></div>
+        <div id="hidden_projects"></div>
+        <div id="projects" class="ui three column grid">
+            <div class="column">
+                <a route="/engine" class="project">
+                    <img src="/img/portfolio/webgpu.png" />
+                    <h2>WebGPU/DotNet Engine <span class="self label"></span> <span class="tech label"></span></h2>
+                </a>
+            </div>
+            <div class="column">
+                <a route="/dotnet" class="project">
+                    <img src="/img/portfolio/c_sharp_hero.webp" />
+                    <h2>DotNet Snake Demo <span class="self label"></span> <span class="tech label"></span></h2>
+                </a>
+            </div>
+            <div class="column">
+                <a route="/webgpu" class="project">
+                    <img src="/img/portfolio/webgpu.png" />
+                    <h2>WebGPU Demo <span class="self label"></span> <span class="tech label"></span></h2>
+                </a>
+            </div>
+            <div class="column">
+                <a route="/dropsofneon" class="project">
+                    <img src="/img/portfolio/drops_of_neon2.png" />
+                    <h2>Drops of Neon <span class="self label"></span> <span class="game label"></span></h2>                
+                </a>
+            </div>
+            <div class="column">
+                <a href="https://github.com/DatBlindArcher/DiscordUnity" class="project" target="_blank">
+                    <img src="/img/portfolio/c_sharp_hero.webp" />
+                    <h2>Discord Unity <span class="self label"></span> <span class="software label"></span></h2>
+                </a>
+            </div>
+            <div class="column">
+                <a class="project">
+                    <img src="/img/portfolio/Kytharos.gif" />
+                    <h2>Kytharos <span class="self label"></span> <span class="game label"></span></h2>
+                </a>
+            </div>
+            <div class="column">
+                <a class="project">
+                    <img src="/img/portfolio/Tron_LightCycle_Render.png" />
+                    <h2>Tron Bike <span class="self label"></span> <span class="art label"></span></h2>
+                </a>
+            </div>
+            <div class="column">
+                <a class="project">
+                    <img src="/img/portfolio/BlueDemon.gif" style="object-fit: contain" />
+                    <h2>Blue Devil <span class="self label"></span> <span class="art label"></span></h2>
+                </a>
+            </div>
+
+            <div class="column">
+                <a href="https://www.youtube.com/watch?v=Yl5jlBUigmU" target="_blank" class="project">
+                    <img src="/img/portfolio/ua.png" />
+                    <h2>UA Stroke Recovery <span class="xplab label"></span> <span class="vr label"></span></h2>
+                </a>
+            </div>
+            <div class="column">
+                <a class="project">
+                    <img src="/img/portfolio/zmp.png" />
+                    <h2>Suicide Prevention <span class="xplab label"></span> <span class="vr label"></span></h2>
+                </a>
+            </div>
+
+            <div class="column">
+                <a class="project">
+                    <img src="/img/portfolio/elz.png" />
+                    <h2>Eerste Lijn Zorg <span class="xplab label"></span> <span class="game label"></span></h2>
+                </a>
+            </div>
+            <div class="column">
+                <a href="https://www.youtube.com/watch?v=BI_GpvyNDz4" target="_blank" class="project">
+                    <img src="/img/portfolio/visit.png" />
+                    <h2>Visit Leuven <span class="xplab label"></span> <span class="ar label"></span></h2>
+                </a>
+            </div>
+
+            <div class="column">
+                <a href="https://www.youtube.com/watch?v=GwdyTGCNNCE" target="_blank" class="project">
+                    <img src="/img/portfolio/eclips.png" />
+                    <h2>ECLIPS <span class="xplab label"></span> <span class="vr label"></span></h2>
+                </a>
+            </div>
+            <div class="column">
+                <a href="https://play.google.com/store/apps/details?id=com.XPLab.PipeXylo" blank="_target" class="project">
+                    <img src="/img/portfolio/pvc.png" />
+                    <h2>PVC Xylo <span class="xplab label"></span> <span class="mobile label"></span></h2>
+                </a>
+            </div>
+
+            <div class="column">
+                <a class="project">
+                    <img src="/img/portfolio/movingMindsLevel5.png" />
+                    <h2>Movings Minds App <span class="xplab label"></span> <span class="game label"></span></h2>
+                </a>
+            </div>
+            <div class="column">
+                <a href="https://www.ucll.be/sites/default/files/CampusMap/index.html" target="_blank" class="project">
+                    <img src="/img/portfolio/campus_map.png" />
+                    <h2>360 Campus Map <span class="xplab label"></span> <span class="tech label"></span></h2>
+                </a>
+            </div>
+
+            <div class="column">
+                <a href="https://www.youtube.com/watch?v=puQC-b7HXUE" target="_blank" class="project">
+                    <img src="/img/portfolio/stadhuis.png" />
+                    <h2>Leuven Stadhuis <span class="xplab label"></span> <span class="tech label"></span></h2>
+                </a>
+            </div>
+            <div class="column">
+                <a href="https://www.ucll.be/nl/uitgelicht/de-ucll-stem-fiets" target="_blank" class="project">
+                    <img src="/img/portfolio/fiets.jpg" />
+                    <h2>Energie Fiets <span class="xplab label"></span> <span class="tech label"></span></h2>
+                </a>
+            </div>
+
+            <div class="column">
+                <a href="https://play.google.com/store/apps/details?id=be.UCLL.XPLab.TheArtemisJourney" target="_blank"  class="project">
+                    <img src="/img/portfolio/artemis.webp" style="object-position: top" />
+                    <h2>Artemis Game <span class="xplab label"></span> <span class="game label"></span></h2>
+                </a>
+            </div>
+            <div class="column">
+                <a href="https://uashome.eu" target="_blank" class="project">
+                    <img src="/img/portfolio/uashome.png" style="object-fit: contain; background-color: white" />
+                    <h2>UASHome <span class="xplab label"></span> <span class="web label"></span></h2>
+                </a>
+            </div>
+
+            <div class="column">
+                <a class="project">
+                    <img src="/img/portfolio/kinect.jpg" />
+                    <h2>Roots <span class="xplab label"></span> <span class="tech label"></span></h2>
+                </a>
+            </div>
+            <div class="column">
+                <a class="project">
+                    <img src="/img/portfolio/unitree.webp" />
+                    <h2>Robots <span class="xplab label"></span> <span class="tech label"></span></h2>
+                </a>
+            </div>
+
+            <div class="column">
+                <a href="https://vacatures.oost-vlaanderen.be" class="project" target="_blank">
+                    <img src="/img/portfolio/vacatures.png" />
+                    <h2>Website Oost-Vlaanderen <span class="dileoz label"></span> <span class="web label"></span></h2>
+                </a>
+            </div>
+            <div class="column">
+                <a class="project">
+                    <img src="/img/portfolio/vr.png" />
+                    <h2>Online Meeting in VR <span class="ordina label"></span> <span class="vr label"></span></h2>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        var portfolio = new Portfolio();
+        var mast = new Mast();
+
+        portfolio.init();
+        mast.init();
+    </script>
+</body>
+</html>

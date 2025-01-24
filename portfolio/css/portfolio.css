@@ -1,0 +1,152 @@
+
+#pause {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+}
+
+.games {
+    color: white;
+    padding: 100px 0px;
+}
+
+.filters {
+    font-family: Fira;
+    font-size: 20px;
+    font-weight: 800;
+    margin-left: 9em;
+    margin-bottom: .5em;
+}
+
+.filters > .label:hover {
+    cursor: pointer;
+}
+
+#projects.ui.grid {
+    margin: 0em 8em;
+    box-sizing: border-box;
+}
+
+#projects.ui.grid > div {
+    padding: 2em 2em !important;
+}
+
+.project {
+    display: block;
+    width: 100%;
+    height: 22em;
+    transition: 0.3s;
+    background-color: rgb(255, 255, 255, 0);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.project:hover {
+    transform: rotate3d(-.2, 1, .01, 16deg);
+    background-color: rgb(255, 255, 255, .2);
+}
+
+.project > h2 {
+    margin: 0;
+    color: white;
+    font-family: Fira;
+    font-size: 26px;
+    font-weight: 0;
+    text-align: left;
+    text-shadow: rgb(255, 255, 255, .5) -2px 0px 4px;
+}
+
+.project > img {
+    width: 100%;
+    height: 18.8em;
+    box-shadow: rgb(0, 0, 0, .4) 0px 20px 30px -10px;
+    object-fit: cover;
+    background-color: black;
+}
+
+.label {
+    vertical-align: middle;
+    text-indent: -9999px;
+    line-height: 0;
+
+    color: white;
+    font-family: Fira;
+    font-size: 12px;
+    font-weight: 0;
+}
+
+.label::after {
+    text-indent: 0;
+    line-height: initial;
+    border-radius: 10px;
+    padding: 4px 12px;
+}
+
+.label.disabled:after {
+    background-color: rgba(60,60,60,1) !important;
+}
+
+.self.label:after {
+    content: "Self-Made";
+    background-color: cyan;
+}
+
+.xplab.label:after {
+    content: "XPLab";
+    background-color: purple;
+}
+
+.dileoz.label:after {
+    content: "Dileoz";
+    background-color: brown;
+}
+
+.ordina.label:after {
+    content: "Ordina";
+    background-color: orange;
+}
+
+.game.label:after {
+    content: "Game-Dev";
+    background-color: gray;
+}
+
+.web.label:after {  
+    content: "Web-Dev";
+    background-color: gray;
+}
+
+.software.label:after {
+    content: "Software";
+    background-color: gray;
+}
+
+.tech.label:after {
+    content: "Tech";
+    background-color: gray;
+}
+
+.art.label:after {
+    content: "Art";
+    background-color: gray;
+}
+
+.vr.label:after {
+    content: "VR";
+    background-color: gray;
+}
+
+.ar.label:after {
+    content: "AR";
+    background-color: gray;
+}
+
+.mobile.label:after {
+    content: "Mobile App";
+    background-color: gray;
+}
+
+#hidden_projects {
+    display: none;
+}
